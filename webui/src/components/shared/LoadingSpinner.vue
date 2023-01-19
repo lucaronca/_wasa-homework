@@ -1,12 +1,12 @@
 <script>
 export default {
-	props: ["loading"]
+	props: ["loading", "marginTop"]
 }
 </script>
 
 <template>
-	<div v-if="loading">
-		<div style="text-align: center">
+	<div v-if="loading" class="spinner" :style="{marginTop: marginTop}">
+		<div>
 			<div class="spinner-border" role="status">
 				<span class="visually-hidden">Loading...</span>
 			</div>
@@ -15,4 +15,10 @@ export default {
 	<div v-if="!loading"><slot /></div>
 </template>
 
-<style></style>
+<style>
+.spinner {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+</style>
